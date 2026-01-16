@@ -13,4 +13,7 @@ This file is intended for documentation related to using the Gemini CLI within t
 *   **Dark Mode:** Added automatic dark mode support using CSS media queries.
 *   **H1 Margin Fix:** Adjusted the margin for the `h1` element.
 *   **Responsiveness:** Implemented responsive design for better viewing on various screen sizes.
-*   **Build/Run:** Removed `bower.json` and consolidated project information into `package.json`. Added a `start` script to `package.json` to run a local webserver.
+*   **Build/Run:** Removed `bower.json` and consolidated project information into `package.json`. The project now uses Vite for development and building.
+    *   `npm run dev` (or `npm start`): Starts the development server with hot-reloading. Access the site at the local address provided in the console (e.g., `http://localhost:5173`).
+    *   `npm run build`: Compiles and minifies the project for production, outputting optimized static assets to the `dist` directory.
+    *   `npm run preview`: Serves the production build locally. This is useful for testing the optimized build before deployment.

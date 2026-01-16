@@ -11,17 +11,24 @@ body {
 }
 
 header {
-    padding: 2rem;
-    border-radius: 10px;
+    padding: 2.5rem 2rem;
+    border-radius: 30px;
     background-color: #327183; /* Lighter header background */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    @supports (corner-shape: squircle) {
+        corner-shape: squircle;
+    }
 }
 
 h1 {
     font-family: "Syne", sans-serif;
     font-size: 3.5rem;
     color: #ffc93c;
+    margin-block-start: 0;
+    margin-block-end: 1.5rem;
 }
+
+
 
 nav ul {
     list-style: none;
@@ -34,16 +41,35 @@ nav li {
     margin: 0 1rem;
 }
 
-nav a {
+nav a, nav button {
     text-decoration: none;
     color: #ff9a3c;
     font-size: 1.2rem;
     transition: color 0.3s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
 }
 
-nav a:hover {
+nav a:hover, nav button:hover {
     color: #ff6f3c;
 }
+
+dialog {
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 80%;
+    max-width: 500px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
 
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
