@@ -1,8 +1,24 @@
+:root {
+    --primary-color: #155263;
+    --secondary-color: #fa4300;
+    --tertiary-color: #fd8e26;
+    --quaternary-color: #facc57;
+  
+    --light-bg: #b3d5df;
+    --light-header-bg: #327183;
+  
+    --dark-bg: #0a2a33;
+    --dark-header-bg: var(--primary-color);
+
+    --button-primary: #2c7a8a;
+    --button-secondary: #43a2b1;
+  }
+
 body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #b3d5df; /* Lighter body background */
+    background-color: var(--light-bg); /* Lighter body background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,26 +27,27 @@ body {
 }
 
 header {
-    padding: 2.5rem 2rem;
-    border-radius: 30px;
-    background-color: #327183; /* Lighter header background */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    @supports (corner-shape: squircle) {
-        corner-shape: squircle;
-    }
+    margin-inline: 1rem;
 }
 
 h1 {
     font-family: "Syne", sans-serif;
-    font-size: 3.5rem;
-    color: #ffc93c;
+    font-weight: 700;
+    font-size: 3rem;
+    color: var(--primary-color);
     margin-block-start: 0;
-    margin-block-end: 1.5rem;
+    margin-block-end: 2rem;
+    @media(min-width: 768px) {
+        font-size: 4rem;
+    }
 }
 
-
-
 nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+    align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -38,22 +55,27 @@ nav ul {
 
 nav li {
     display: inline-block;
-    margin: 0 1rem;
 }
 
 nav a, nav button {
     text-decoration: none;
-    color: #ff9a3c;
+    color: white;
     font-size: 1.2rem;
-    transition: color 0.3s;
-    background: none;
+    transition: all 0.3s;
+    background: linear-gradient(to bottom, var(--button-primary), var(--button-secondary));
     border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
     cursor: pointer;
     font-family: inherit;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    outline: 2px solid transparent;
 }
 
-nav a:hover, nav button:hover {
-    color: #ff6f3c;
+nav a:hover, nav button:hover, nav a:focus-visible, nav button:focus-visible {
+    background: linear-gradient(to bottom, var(--button-secondary), var(--button-primary));
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    outline: 2px solid var(--light-bg);
 }
 
 dialog {
@@ -67,45 +89,26 @@ dialog {
 
 dialog::backdrop {
   background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
+  filter: blur(4px);
 }
 
 
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #0a2a33;
-    }
-
-    header {
-        background-color: #155263;
+        background-color: var(--dark-bg);
     }
 
     h1 {
-        color: #ffc93c;
+        color: var(--quaternary-color);
     }
 
     nav a {
-        color: #ff9a3c;
+        color: var(--tertiary-color);
     }
 
     nav a:hover {
-        color: #ff6f3c;
+        color: var(--secondary-color);
     }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 3rem;
-    }
-
-    header {
-        padding: 1.5rem;
-    }
-
-    nav li {
-        display: block;
-        margin: 0.5rem 0;
-    }
-}
